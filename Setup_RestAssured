@@ -1,0 +1,63 @@
+1) Schema Validation:
+    > Developer can give that
+        if not we can generate with one of the example by simple just from a schema generator website
+    > Add it to resources and it is a json file
+    > Especially check required section in body.
+
+2) log() or log().all() -> gives info, if you use after given, will log about request
+                           if you use after then, will log about response
+
+3) then() -> does assertion
+
+4) to post a map of data, use >
+    Map<String,Object> data = new LinkedHashMap<>(); -> the reason to use "LinkedHashMap", it keeps the order.
+
+5) When using lombok, we can use JsonIgnore annotation(on setter method)
+    to ignore that field while parsing from pojo to json
+    Lombok:
+        > Add dependency and add plugin to IDE
+        > Then import lombok.annotations and add on top of the class(ex: lombok.Data)
+        > More info(https://projectlombok.org/)
+
+6) Response to pojo:
+    -> get("").as(Classname.class); -> that convert response to our pojo class
+    -> For Array of the pojos-> get("").as(Classname[].class)
+    -> For list -> get().jsonPath().getList("",Classname.class)
+
+7) To extract(deserialise) specific data into Pojo
+    -> Use "@JsonIgnoreProperties(ignoreUnknown = true)" anotation on pojo class.
+    -> Use as an Ex: "Marvel marvel = response.jsonPath().getObject("data.results[0]",Marvel.class);"
+        While deserialising. From results instance in the Pojo will be found and value will be assigned automaticly.
+
+8) To put different-level variable in to POJO:
+    ->     String available;                                             ->Must be same name as in response
+           @JsonProperty("comics")                                       ->Annotation shows the source of the data(level)
+           public void setAvailable(Map<String,Object> comics) {         ->We get the data from Map in that case and data type of the value is "Object"
+               this.available = String.valueOf(comics.get("available")); ->Convert it to the data type you want.
+           }
+
+9) ObjectMapper:
+    -> Create a data.json file and put the details to there from the search location(ex:"data.results[0]")
+    -> Then >         ObjectMapper mapper = new ObjectMapper();
+                      Marvel marvel = mapper.readValue(new File("data.json"),Marvel.class);
+    -> For list version:
+        -> Create array version of the list (ex:all_data.json) then >
+            >  ObjectMapper mapper = new ObjectMapper();
+                      List<Marvel> marvels =
+                      mapper.readValue(
+                      new File("all_data.json"),new TypeReference<List<Marvel>>(){}   >>>(Careful for details)
+                      );
+
+    >>> To write all to a new value: ex: mapper.writeValue(new File("newFile.json"),marvels);
+
+10) From Map to json Format:
+    -> Ex:
+                    SpartanPojo p1 = new SpartanPojo("Jon","Male",1231231231L);
+                    Map<String,Object> myDataMap = new LinkedHashMap<>();
+                    myDataMap.put("success","a spartan is born");
+                    myDataMap.put("data",p1);
+                    myDataMap.put("message","thanks for attending api bootcamp, see you next time");
+                    ObjectMapper mapper = new ObjectMapper();
+                    mapper.enable(SerializationFeature.INDENT_OUTPUT); // pretty print
+                    String jsonStr = mapper.writeValueAsString(myDataMap) ;
+

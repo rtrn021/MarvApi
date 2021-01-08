@@ -1,0 +1,556 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "code",
+    "status",
+    "copyright",
+    "attributionText",
+    "attributionHTML",
+    "etag",
+    "data"
+  ],
+  "properties": {
+    "code": {
+      "$id": "#/properties/code",
+      "type": "integer",
+      "title": "The Code Schema",
+      "default": 0,
+      "examples": [
+        200
+      ]
+    },
+    "status": {
+      "$id": "#/properties/status",
+      "type": "string",
+      "title": "The Status Schema",
+      "default": "",
+      "examples": [
+        "Ok"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "copyright": {
+      "$id": "#/properties/copyright",
+      "type": "string",
+      "title": "The Copyright Schema",
+      "default": "",
+      "examples": [
+        "© 2019 MARVEL"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "attributionText": {
+      "$id": "#/properties/attributionText",
+      "type": "string",
+      "title": "The Attributiontext Schema",
+      "default": "",
+      "examples": [
+        "Data provided by Marvel. © 2019 MARVEL"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "attributionHTML": {
+      "$id": "#/properties/attributionHTML",
+      "type": "string",
+      "title": "The Attributionhtml Schema",
+      "default": "",
+      "examples": [
+        "<a href=\"http://marvel.com\">Data provided by Marvel. © 2019 MARVEL</a>"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "etag": {
+      "$id": "#/properties/etag",
+      "type": "string",
+      "title": "The Etag Schema",
+      "default": "",
+      "examples": [
+        "300b8e6c6f07518e2b4886265fc927b30bc1b428"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "data": {
+      "$id": "#/properties/data",
+      "type": "object",
+      "title": "The Data Schema",
+      "required": [
+        "offset",
+        "limit",
+        "total",
+        "count",
+        "results"
+      ],
+      "properties": {
+        "offset": {
+          "$id": "#/properties/data/properties/offset",
+          "type": "integer",
+          "title": "The Offset Schema",
+          "default": 0,
+          "examples": [
+            1
+          ]
+        },
+        "limit": {
+          "$id": "#/properties/data/properties/limit",
+          "type": "integer",
+          "title": "The Limit Schema",
+          "default": 0,
+          "examples": [
+            100
+          ]
+        },
+        "total": {
+          "$id": "#/properties/data/properties/total",
+          "type": "integer",
+          "title": "The Total Schema",
+          "default": 0,
+          "examples": [
+            1492
+          ]
+        },
+        "count": {
+          "$id": "#/properties/data/properties/count",
+          "type": "integer",
+          "title": "The Count Schema",
+          "default": 0,
+          "examples": [
+            100
+          ]
+        },
+        "results": {
+          "$id": "#/properties/data/properties/results",
+          "type": "array",
+          "title": "The Results Schema",
+          "items": {
+            "$id": "#/properties/data/properties/results/items",
+            "type": "object",
+            "title": "The Items Schema",
+            "required": [
+              "id",
+              "name",
+              "description",
+              "modified",
+              "thumbnail",
+              "resourceURI",
+              "comics",
+              "series",
+              "stories",
+              "events",
+              "urls"
+            ],
+            "properties": {
+              "id": {
+                "$id": "#/properties/data/properties/results/items/properties/id",
+                "type": "integer",
+                "title": "The Id Schema",
+                "default": 0,
+                "examples": [
+                  1017100
+                ]
+              },
+              "name": {
+                "$id": "#/properties/data/properties/results/items/properties/name",
+                "type": "string",
+                "title": "The Name Schema",
+                "default": "",
+                "examples": [
+                  "A-Bomb (HAS)"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "description": {
+                "$id": "#/properties/data/properties/results/items/properties/description",
+                "type": "string",
+                "title": "The Description Schema",
+                "default": "",
+                "examples": [
+                  "Rick Jones has been Hulk's best bud since day one, but now he's more than a friend...he's a teammate! Transformed by a Gamma energy explosion, A-Bomb's thick, armored skin is just as strong and powerful as it is blue. And when he curls into action, he uses it like a giant bowling ball of destruction! "
+                ],
+                "pattern": "^(.*)$"
+              },
+              "modified": {
+                "$id": "#/properties/data/properties/results/items/properties/modified",
+                "type": "string",
+                "title": "The Modified Schema",
+                "default": "",
+                "examples": [
+                  "2013-09-18T15:54:04-0400"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "thumbnail": {
+                "$id": "#/properties/data/properties/results/items/properties/thumbnail",
+                "type": "object",
+                "title": "The Thumbnail Schema",
+                "required": [
+                  "path",
+                  "extension"
+                ],
+                "properties": {
+                  "path": {
+                    "$id": "#/properties/data/properties/results/items/properties/thumbnail/properties/path",
+                    "type": "string",
+                    "title": "The Path Schema",
+                    "default": "",
+                    "examples": [
+                      "http://i.annihil.us/u/prod/marvel/i/mg/3/20/5232158de5b16"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "extension": {
+                    "$id": "#/properties/data/properties/results/items/properties/thumbnail/properties/extension",
+                    "type": "string",
+                    "title": "The Extension Schema",
+                    "default": "",
+                    "examples": [
+                      "jpg"
+                    ],
+                    "pattern": "^(.*)$"
+                  }
+                }
+              },
+              "resourceURI": {
+                "$id": "#/properties/data/properties/results/items/properties/resourceURI",
+                "type": "string",
+                "title": "The Resourceuri Schema",
+                "default": "",
+                "examples": [
+                  "http://gateway.marvel.com/v1/public/characters/1017100"
+                ],
+                "pattern": "^(.*)$"
+              },
+              "comics": {
+                "$id": "#/properties/data/properties/results/items/properties/comics",
+                "type": "object",
+                "title": "The Comics Schema",
+                "required": [
+                  "available",
+                  "collectionURI",
+                  "items",
+                  "returned"
+                ],
+                "properties": {
+                  "available": {
+                    "$id": "#/properties/data/properties/results/items/properties/comics/properties/available",
+                    "type": "integer",
+                    "title": "The Available Schema",
+                    "default": 0,
+                    "examples": [
+                      3
+                    ]
+                  },
+                  "collectionURI": {
+                    "$id": "#/properties/data/properties/results/items/properties/comics/properties/collectionURI",
+                    "type": "string",
+                    "title": "The Collectionuri Schema",
+                    "default": "",
+                    "examples": [
+                      "http://gateway.marvel.com/v1/public/characters/1017100/comics"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "items": {
+                    "$id": "#/properties/data/properties/results/items/properties/comics/properties/items",
+                    "type": "array",
+                    "title": "The Items Schema",
+                    "items": {
+                      "$id": "#/properties/data/properties/results/items/properties/comics/properties/items/items",
+                      "type": "object",
+                      "title": "The Items Schema",
+                      "required": [
+                        "resourceURI",
+                        "name"
+                      ],
+                      "properties": {
+                        "resourceURI": {
+                          "$id": "#/properties/data/properties/results/items/properties/comics/properties/items/items/properties/resourceURI",
+                          "type": "string",
+                          "title": "The Resourceuri Schema",
+                          "default": "",
+                          "examples": [
+                            "http://gateway.marvel.com/v1/public/comics/40632"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/data/properties/results/items/properties/comics/properties/items/items/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "Hulk (2008) #53"
+                          ],
+                          "pattern": "^(.*)$"
+                        }
+                      }
+                    }
+                  },
+                  "returned": {
+                    "$id": "#/properties/data/properties/results/items/properties/comics/properties/returned",
+                    "type": "integer",
+                    "title": "The Returned Schema",
+                    "default": 0,
+                    "examples": [
+                      3
+                    ]
+                  }
+                }
+              },
+              "series": {
+                "$id": "#/properties/data/properties/results/items/properties/series",
+                "type": "object",
+                "title": "The Series Schema",
+                "required": [
+                  "available",
+                  "collectionURI",
+                  "items",
+                  "returned"
+                ],
+                "properties": {
+                  "available": {
+                    "$id": "#/properties/data/properties/results/items/properties/series/properties/available",
+                    "type": "integer",
+                    "title": "The Available Schema",
+                    "default": 0,
+                    "examples": [
+                      2
+                    ]
+                  },
+                  "collectionURI": {
+                    "$id": "#/properties/data/properties/results/items/properties/series/properties/collectionURI",
+                    "type": "string",
+                    "title": "The Collectionuri Schema",
+                    "default": "",
+                    "examples": [
+                      "http://gateway.marvel.com/v1/public/characters/1017100/series"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "items": {
+                    "$id": "#/properties/data/properties/results/items/properties/series/properties/items",
+                    "type": "array",
+                    "title": "The Items Schema",
+                    "items": {
+                      "$id": "#/properties/data/properties/results/items/properties/series/properties/items/items",
+                      "type": "object",
+                      "title": "The Items Schema",
+                      "required": [
+                        "resourceURI",
+                        "name"
+                      ],
+                      "properties": {
+                        "resourceURI": {
+                          "$id": "#/properties/data/properties/results/items/properties/series/properties/items/items/properties/resourceURI",
+                          "type": "string",
+                          "title": "The Resourceuri Schema",
+                          "default": "",
+                          "examples": [
+                            "http://gateway.marvel.com/v1/public/series/17765"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/data/properties/results/items/properties/series/properties/items/items/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "FREE COMIC BOOK DAY 2013 1 (2013)"
+                          ],
+                          "pattern": "^(.*)$"
+                        }
+                      }
+                    }
+                  },
+                  "returned": {
+                    "$id": "#/properties/data/properties/results/items/properties/series/properties/returned",
+                    "type": "integer",
+                    "title": "The Returned Schema",
+                    "default": 0,
+                    "examples": [
+                      2
+                    ]
+                  }
+                }
+              },
+              "stories": {
+                "$id": "#/properties/data/properties/results/items/properties/stories",
+                "type": "object",
+                "title": "The Stories Schema",
+                "required": [
+                  "available",
+                  "collectionURI",
+                  "items",
+                  "returned"
+                ],
+                "properties": {
+                  "available": {
+                    "$id": "#/properties/data/properties/results/items/properties/stories/properties/available",
+                    "type": "integer",
+                    "title": "The Available Schema",
+                    "default": 0,
+                    "examples": [
+                      7
+                    ]
+                  },
+                  "collectionURI": {
+                    "$id": "#/properties/data/properties/results/items/properties/stories/properties/collectionURI",
+                    "type": "string",
+                    "title": "The Collectionuri Schema",
+                    "default": "",
+                    "examples": [
+                      "http://gateway.marvel.com/v1/public/characters/1017100/stories"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "items": {
+                    "$id": "#/properties/data/properties/results/items/properties/stories/properties/items",
+                    "type": "array",
+                    "title": "The Items Schema",
+                    "items": {
+                      "$id": "#/properties/data/properties/results/items/properties/stories/properties/items/items",
+                      "type": "object",
+                      "title": "The Items Schema",
+                      "required": [
+                        "resourceURI",
+                        "name",
+                        "type"
+                      ],
+                      "properties": {
+                        "resourceURI": {
+                          "$id": "#/properties/data/properties/results/items/properties/stories/properties/items/items/properties/resourceURI",
+                          "type": "string",
+                          "title": "The Resourceuri Schema",
+                          "default": "",
+                          "examples": [
+                            "http://gateway.marvel.com/v1/public/stories/92078"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "name": {
+                          "$id": "#/properties/data/properties/results/items/properties/stories/properties/items/items/properties/name",
+                          "type": "string",
+                          "title": "The Name Schema",
+                          "default": "",
+                          "examples": [
+                            "Hulk (2008) #55"
+                          ],
+                          "pattern": "^(.*)$"
+                        },
+                        "type": {
+                          "$id": "#/properties/data/properties/results/items/properties/stories/properties/items/items/properties/type",
+                          "type": "string",
+                          "title": "The Type Schema",
+                          "default": "",
+                          "examples": [
+                            "cover"
+                          ],
+                          "pattern": "^(.*)$"
+                        }
+                      }
+                    }
+                  },
+                  "returned": {
+                    "$id": "#/properties/data/properties/results/items/properties/stories/properties/returned",
+                    "type": "integer",
+                    "title": "The Returned Schema",
+                    "default": 0,
+                    "examples": [
+                      7
+                    ]
+                  }
+                }
+              },
+              "events": {
+                "$id": "#/properties/data/properties/results/items/properties/events",
+                "type": "object",
+                "title": "The Events Schema",
+                "required": [
+                  "available",
+                  "collectionURI",
+                  "items",
+                  "returned"
+                ],
+                "properties": {
+                  "available": {
+                    "$id": "#/properties/data/properties/results/items/properties/events/properties/available",
+                    "type": "integer",
+                    "title": "The Available Schema",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  },
+                  "collectionURI": {
+                    "$id": "#/properties/data/properties/results/items/properties/events/properties/collectionURI",
+                    "type": "string",
+                    "title": "The Collectionuri Schema",
+                    "default": "",
+                    "examples": [
+                      "http://gateway.marvel.com/v1/public/characters/1017100/events"
+                    ],
+                    "pattern": "^(.*)$"
+                  },
+                  "items": {
+                    "$id": "#/properties/data/properties/results/items/properties/events/properties/items",
+                    "type": "array",
+                    "title": "The Items Schema"
+                  },
+                  "returned": {
+                    "$id": "#/properties/data/properties/results/items/properties/events/properties/returned",
+                    "type": "integer",
+                    "title": "The Returned Schema",
+                    "default": 0,
+                    "examples": [
+                      0
+                    ]
+                  }
+                }
+              },
+              "urls": {
+                "$id": "#/properties/data/properties/results/items/properties/urls",
+                "type": "array",
+                "title": "The Urls Schema",
+                "items": {
+                  "$id": "#/properties/data/properties/results/items/properties/urls/items",
+                  "type": "object",
+                  "title": "The Items Schema",
+                  "required": [
+                    "type",
+                    "url"
+                  ],
+                  "properties": {
+                    "type": {
+                      "$id": "#/properties/data/properties/results/items/properties/urls/items/properties/type",
+                      "type": "string",
+                      "title": "The Type Schema",
+                      "default": "",
+                      "examples": [
+                        "detail"
+                      ],
+                      "pattern": "^(.*)$"
+                    },
+                    "url": {
+                      "$id": "#/properties/data/properties/results/items/properties/urls/items/properties/url",
+                      "type": "string",
+                      "title": "The Url Schema",
+                      "default": "",
+                      "examples": [
+                        "http://marvel.com/comics/characters/1017100/a-bomb_has?utm_campaign=apiRef&utm_source=4588aa441d3a3984e2cc6ff75ab568e5"
+                      ],
+                      "pattern": "^(.*)$"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

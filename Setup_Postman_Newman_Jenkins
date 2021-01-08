@@ -1,0 +1,48 @@
+1) API(Microservices) > devide the API into pieces > Ex: your Search API and Account API is different
+    > So they wont be affected from eachother
+
+2) 200 > Success - 400 > Client - 500 > Server
+
+3) Postman
+    -> You can have global and local variable in postman
+        * You can create different environment and add variables in these environment
+        * You can run tests after each request.
+
+4) Api key: can be in header or in query param depends how it is build,
+    > Also can be added in param or header but instead of that better to add in Authorazation
+    > That is also same how token works
+    > Either of them is added as key-value pair
+
+5) Token: That also depends how the documentation designed,
+    Exp > To login url(whereever is the endpoint in the doc)
+            send(post) your email and password as param with the format(encode) it is required,
+        > Then in response body there will be a token(which is unique to us). That is like apikey.
+            (Take that token(after run, from Tests section) and save it to an environment variable to make it dynamic)
+
+6) Decode: Send(post) the token (in body) according to doc. to the end point url.
+            Then in response there will be user info.
+
+7) To do API over CI/CD using newman:
+    > install nodejs (from current on site(nodejs.org) ) then check on command line by "node -v"
+    > from command line install newman by "npm install -g newman" and check by "newman -v"
+    > optional(install from command line "npm install -g newman-reporter-htmlextra")
+
+8) How to run from newman from command line(make sure to be on the right location):
+    (for more info https://www.npmjs.com/package/newman)
+    > newman run name.postman_collection.json
+    > newman run publiclink (which we get from postman for the collection)
+    > newman run publiclink -n 3 > that runs 3 times
+    > newman run OMDBAPI.postman_collection.JSON -e omdbapi.postman_environment.JSON
+        (to run with environment variables)(also -g globalssource can be added)
+        (to add data file: -d datafile.csv)
+
+9) With webpostman(after login) we can generate a X-api-key(unique to our account)
+    and import everything and use it anywhere.
+
+10) To run newman over jenkins:
+    > Install nodejs on jenkins, and provide node npm during creating jobs(Node.JS)
+    > Then build execute command
+
+11) To get reports:
+    > at the end of the command we can add "-r htmlextra" that will stored in html format in the file
+    > at the end of the command we can add "-r cli,json"
